@@ -10,18 +10,22 @@ export const dynamic = "force-dynamic";
 const WORKER_ID = `cron-${Date.now()}`;
 const CONCURRENCY = 100;
 
-webpush.setVapidDetails(
-  process.env.VAPID_CONTACT || "mailto:admin@example.com",
-  process.env.VAPID_PUBLIC_KEY!,
-  process.env.VAPID_PRIVATE_KEY!
-);
-
 export async function GET(req: NextRequest) {
   // Verify this is called by Vercel Cron (or locally with the secret)
   const authHeader = req.headers.get("authorization");
   if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
+
+  if (!process.env.VAPID_PUBLIC_KEY || !process.env.VAPID_PRIVATE_KEY) {
+    return NextResponse.json({ error: "VAPID keys not configured" }, { status: 500 });
+  }
+
+  webpush.setVapidDetails(
+    process.env.VAPID_CONTACT || "mailto:admin@example.com",
+    process.env.VAPID_PUBLIC_KEY,
+    process.env.VAPID_PRIVATE_KEY
+  );
 
   if (!process.env.MONGODB_URI) {
     return NextResponse.json({ error: "MONGODB_URI not set" }, { status: 500 });
