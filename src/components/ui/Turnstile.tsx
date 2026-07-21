@@ -21,9 +21,17 @@ export function Turnstile({
 }) {
   const holderId = useId().replace(/:/g, "");
   const widgetIdRef = useRef<string | null>(null);
-  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+  let siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+  if (process.env.NODE_ENV === "development" && (!siteKey || siteKey.startsWith("0x"))) {
+    siteKey = "1x00000000000000000000AA";
+  }
 
   useEffect(() => {
+    if (!siteKey) {
+      onToken("disabled");
+      return;
+    }
+
     let cancelled = false;
     function tryRender() {
       if (cancelled) return;
