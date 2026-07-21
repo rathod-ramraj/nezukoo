@@ -1,8 +1,5 @@
 import { MongoClient, Db } from "mongodb";
 
-const uri = process.env.MONGODB_URI;
-if (!uri) throw new Error("MONGODB_URI not set");
-
 const dbName = process.env.MONGODB_DB || "Layla";
 
 declare global {
@@ -12,12 +9,17 @@ declare global {
   var _mongoIndexed: boolean | undefined;
 }
 
-const client = global._mongoClient ?? new MongoClient(uri);
-if (!global._mongoClient) global._mongoClient = client;
-
 let dbPromise: Promise<Db> | null = null;
 
 export function getDb(): Promise<Db> {
+  const uri = process.env.MONGODB_URI;
+  if (!uri) throw new Error("MONGODB_URI not set");
+
+  if (!global._mongoClient) {
+    global._mongoClient = new MongoClient(uri);
+  }
+  const client = global._mongoClient;
+
   if (!dbPromise) {
     dbPromise = client.connect().then(async (c) => {
       const db = c.db(dbName);
