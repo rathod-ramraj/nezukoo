@@ -13,7 +13,7 @@ const http = require("http");
 
 const MONGO_URI = process.env.MONGODB_URI;
 const DB_NAME = process.env.MONGODB_DB || "Layla";
-const PORT = Number(process.env.QUEUE_PORT || 4001);
+const PORT = Number(process.env.PORT || process.env.QUEUE_PORT || 4001);
 const CONCURRENCY = Number(process.env.QUEUE_CONCURRENCY || 250);
 const POLL_MS = Number(process.env.QUEUE_POLL_MS || 1500);
 const PROGRESS_EVERY = Number(process.env.QUEUE_PROGRESS_EVERY || 25);
@@ -209,7 +209,7 @@ async function tick() {
 
 http
   .createServer((req, res) => {
-    if (req.url === "/health") {
+    if (req.url === "/health" || req.url === "/") {
       res.writeHead(200, { "content-type": "application/json" });
       res.end(JSON.stringify({ ok: true, worker: WORKER_ID }));
       return;
@@ -223,8 +223,8 @@ http
     res.writeHead(404);
     res.end();
   })
-  .listen(PORT, "127.0.0.1", () => {
-    console.log(`[queue] http listening on 127.0.0.1:${PORT}`);
+  .listen(PORT, "0.0.0.0", () => {
+    console.log(`[queue] http listening on 0.0.0.0:${PORT}`);
   });
 
 async function main() {
