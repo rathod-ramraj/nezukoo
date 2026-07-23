@@ -10,7 +10,7 @@ export async function GET(_req: Request, { params }: { params: { siteId: string 
   const db = await getDb();
   const site = await db.collection("sites").findOne({ siteId });
   if (!site) {
-    return new NextResponse(`/* Layla: unknown site */`, {
+    return new NextResponse(`/* Nezuko: unknown site */`, {
       status: 404,
       headers: { "Content-Type": "application/javascript" },
     });
@@ -54,15 +54,15 @@ function buildEmbed({ siteId, appUrl, vapidPublic }: { siteId: string; appUrl: s
   async function register(){
     var reg;
     try {
-      var probe = await fetch('/layla-sw.js', { method: 'GET', cache: 'no-store' });
+      var probe = await fetch('/nezuko-sw.js', { method: 'GET', cache: 'no-store' });
       var ct = (probe.headers.get('content-type') || '').toLowerCase();
       if (!probe.ok || ct.indexOf('javascript') === -1) {
-        console.error('[Layla] /layla-sw.js is missing or not JavaScript (content-type: ' + ct + '). Download it from ' + API + '/sw.js and place it at the root of your site.');
+        console.error('[Nezuko] /nezuko-sw.js is missing or not JavaScript (content-type: ' + ct + '). Download it from ' + API + '/sw.js and place it at the root of your site.');
         return;
       }
-      reg = await navigator.serviceWorker.register('/layla-sw.js', { scope: '/' });
+      reg = await navigator.serviceWorker.register('/nezuko-sw.js', { scope: '/' });
     } catch(e){
-      console.error('[Layla] Service worker registration failed:', e && e.message ? e.message : e);
+      console.error('[Nezuko] Service worker registration failed:', e && e.message ? e.message : e);
       return;
     }
     ping('loaded');

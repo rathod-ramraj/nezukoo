@@ -155,7 +155,7 @@ export default async function Home() {
             One file. One script tag.
           </h2>
           <p className="mx-auto mt-3 max-w-lg text-sm text-muted">
-            Drop <code className="text-white">layla-sw.js</code> at the root of your site, then paste the
+            Drop <code className="text-white">nezuko-sw.js</code> at the root of your site, then paste the
             snippet before <code className="text-white">&lt;/body&gt;</code>. That&apos;s it.
           </p>
           <div className="mt-10">

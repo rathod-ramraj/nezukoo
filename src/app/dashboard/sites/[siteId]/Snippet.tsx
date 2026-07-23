@@ -16,7 +16,7 @@ export default function Snippet({ siteId, appUrl }: { siteId: string; appUrl: st
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "layla-sw.js";
+      a.download = "nezuko-sw.js";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -67,13 +67,13 @@ export default function Snippet({ siteId, appUrl }: { siteId: string; appUrl: st
                     <path d="M10 3v10m0 0l-4-4m4 4l4-4M4 17h12" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                   {downloading ? "Downloading…" : "Download "}
-                  {!downloading && <code className="rounded bg-white/[0.06] px-1 text-white/80">layla-sw.js</code>}
+                  {!downloading && <code className="rounded bg-white/[0.06] px-1 text-white/80">nezuko-sw.js</code>}
                 </>
               )}
             </button>
             <span className="text-[12px] text-white/50">
               Then upload to your root, so it&apos;s reachable at{" "}
-              <code className="rounded bg-white/[0.06] px-1 text-white/80">yoursite.com/layla-sw.js</code>
+              <code className="rounded bg-white/[0.06] px-1 text-white/80">yoursite.com/nezuko-sw.js</code>
             </span>
           </div>
           <p className="mt-3 text-[11px] leading-relaxed text-white/40">
@@ -85,7 +85,7 @@ export default function Snippet({ siteId, appUrl }: { siteId: string; appUrl: st
         <Step
           num={2}
           title="Paste the snippet before </body>"
-          desc="One line. Once the SW is in place, this loads Layla and prompts users on their first click."
+          desc="One line. Once the SW is in place, this loads Nezuko and prompts users on their first click."
         >
           <SnippetBlock code={snippet} />
         </Step>
@@ -97,7 +97,7 @@ export default function Snippet({ siteId, appUrl }: { siteId: string; appUrl: st
         >
           <p className="text-[11px] leading-relaxed text-white/40">
             Not working? Open DevTools → Application → Service Workers. If nothing is registered, check that{" "}
-            <code className="text-white/60">layla-sw.js</code> at your root returns JavaScript (not HTML).
+            <code className="text-white/60">nezuko-sw.js</code> at your root returns JavaScript (not HTML).
           </p>
         </Step>
       </div>
