@@ -29,7 +29,7 @@ if (!process.env.VAPID_PUBLIC_KEY || !process.env.VAPID_PRIVATE_KEY) {
 }
 
 webpush.setVapidDetails(
-  process.env.VAPID_CONTACT || "mailto:admin@nezuko.wtf",
+  process.env.VAPID_CONTACT || "mailto:admin@nezukoo.vercel.app",
   process.env.VAPID_PUBLIC_KEY,
   process.env.VAPID_PRIVATE_KEY,
 );

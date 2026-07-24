@@ -50,7 +50,7 @@ const steps = [
             <div className="h-8 w-8 rounded-md bg-accent/30" />
             <div className="flex-1">
               <div className="flex items-center justify-between">
-                <div className="text-xs font-semibold">nezuko.wtf</div>
+                <div className="text-xs font-semibold">nezukoo.vercel.app</div>
                 <div className="text-[10px] text-muted">now</div>
               </div>
               <div className="mt-0.5 text-xs text-white">You have 42 new signups</div>
