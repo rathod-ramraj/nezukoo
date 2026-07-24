@@ -26,7 +26,7 @@ export default function CopyCodeButton() {
 
   useEffect(() => {
     if (!open) return;
-    const raw = readCookie("layla_code");
+    const raw = readCookie("nezuko_code");
     setCode(raw ? formatCode(raw) : "");
     setReveal(false);
     setCopied(false);

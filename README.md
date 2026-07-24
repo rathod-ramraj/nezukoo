@@ -6,7 +6,7 @@
       />
     </p>
 
-# <p align="center">Layla</p>
+# <p align="center">Nezuko</p>
 
 Web push notifications, without the bloat.
 
@@ -19,9 +19,9 @@ Drop one line of JS on your site and start sending browser push notifications. N
 
 ## What it does
 
-- **Sign up with a code.** No email, no password. Layla generates a 16-digit code — that's your account. Lose it, lose the account. There is no recovery.
+- **Sign up with a code.** No email, no password. Nezuko generates a 16-digit code — that's your account. Lose it, lose the account. There is no recovery.
 - **Add a site.** Register an origin (HTTPS only). You get a snippet.
-- **Paste the snippet.** One `<script>` tag. Layla registers the service worker, prompts users for push permission, and stores the subscription.
+- **Paste the snippet.** One `<script>` tag. Nezuko registers the service worker, prompts users for push permission, and stores the subscription.
 - **Send notifications.** From the dashboard: title, message, optional URL and icon. Delivered via FCM / Mozilla autopush / APNs.
 
 ## Stack
@@ -44,7 +44,7 @@ npm run dev
 
 ```
 MONGODB_URI=...
-MONGODB_DB=Layla
+MONGODB_DB=Nezuko
 
 SESSION_SECRET=<32+ random bytes, hex>
 CODE_PEPPER=<any secret string>
@@ -84,9 +84,9 @@ Works on Vercel out of the box. Set all env vars in the project settings, add yo
 - Only the salted hash of your code is stored — never the plaintext.
 - No analytics, fingerprinting, or third-party requests in the embed script.
 - Only cookie is your session.
-- Push subscription endpoints are opaque tokens routed to browser vendors — Layla cannot identify subscribers from them.
+- Push subscription endpoints are opaque tokens routed to browser vendors — Nezuko cannot identify subscribers from them.
 
-Full details on [/tos](https://layla.wtf/tos). Common questions on [/faq](https://layla.wtf/faq).
+Full details on [/tos](https://nezukoo.vercel.app/tos). Common questions on [/faq](https://nezukoo.vercel.app/faq).
 
 ## License
 

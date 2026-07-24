@@ -51,7 +51,7 @@ const categories: Category[] = [
     items: [
       {
         q: "Why can't I add an http:// site?",
-        a: "Web push requires HTTPS. Browsers will not register a service worker on http:// pages (localhost is the only exception, for development). This is a browser security rule, not a Layla policy.",
+        a: "Web push requires HTTPS. Browsers will not register a service worker on http:// pages (localhost is the only exception, for development). This is a browser security rule, not a Nezuko policy.",
       },
       {
         q: "The user clicked 'Allow' but they don't appear in Subscribers. Why?",
@@ -81,11 +81,11 @@ const categories: Category[] = [
       },
       {
         q: "How long can a notification take to arrive?",
-        a: "Usually under 5 seconds. Push services (FCM/Mozilla/Apple) may delay or batch delivery to save battery, especially on mobile with the screen off. Layla sets a 24-hour TTL — if the device is offline that long, the notification is dropped.",
+        a: "Usually under 5 seconds. Push services (FCM/Mozilla/Apple) may delay or batch delivery to save battery, especially on mobile with the screen off. Nezuko sets a 24-hour TTL — if the device is offline that long, the notification is dropped.",
       },
       {
         q: "Why did some notifications fail in the send response?",
-        a: "Most common reasons: (1) the subscription expired — browsers rotate keys periodically, (2) the user cleared site data or uninstalled the browser, (3) the push service is temporarily rejecting. Layla auto-removes subscribers whose endpoints return 404 or 410 (permanently gone). Transient failures aren't removed.",
+        a: "Most common reasons: (1) the subscription expired — browsers rotate keys periodically, (2) the user cleared site data or uninstalled the browser, (3) the push service is temporarily rejecting. Nezuko auto-removes subscribers whose endpoints return 404 or 410 (permanently gone). Transient failures aren't removed.",
       },
       {
         q: "Why is my 'Sent' count higher than my subscriber count?",
@@ -95,18 +95,18 @@ const categories: Category[] = [
   },
   {
     label: "Account & data",
-    hint: "How Layla treats your account and what it stores.",
+    hint: "How Nezuko treats your account and what it stores.",
     items: [
       {
         q: "I lost my 16-digit code. Can I recover it?",
-        a: "No. Layla stores only a salted hash of your code — the original digits are never saved. There is no email, phone, or backup. If you're still signed in, use the 'My code' button in the header to view it. If you're signed out with the code lost, the account and all its sites are permanently unreachable. Just create a new account and re-add your sites — you keep control of your domain, so re-verification is trivial.",
+        a: "No. Nezuko stores only a salted hash of your code — the original digits are never saved. There is no email, phone, or backup. If you're still signed in, use the 'My code' button in the header to view it. If you're signed out with the code lost, the account and all its sites are permanently unreachable. Just create a new account and re-add your sites — you keep control of your domain, so re-verification is trivial.",
       },
       {
         q: "How many notifications are kept in history?",
         a: "Only the last 10 per site, to keep the database lean. Older ones are automatically deleted. Lifetime totals (Sent, Attempted, Delivered) are preserved as counters — those don't lose accuracy.",
       },
       {
-        q: "Does Layla track my visitors?",
+        q: "Does Nezuko track my visitors?",
         a: "No. The embed script only registers a service worker and prompts for push permission. No analytics, no fingerprinting, no cookies, no third-party requests except to the browser's own push service (FCM/Mozilla/Apple) when a user subscribes.",
       },
     ],

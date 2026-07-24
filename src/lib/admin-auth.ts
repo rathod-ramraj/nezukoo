@@ -2,7 +2,7 @@ import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import crypto from "node:crypto";
 
-const ADMIN_COOKIE = "layla_admin_session";
+const ADMIN_COOKIE = "nezuko_admin_session";
 const ADMIN_SESSION_TTL_SECS = 60 * 60 * 8;
 
 function secretKey() {

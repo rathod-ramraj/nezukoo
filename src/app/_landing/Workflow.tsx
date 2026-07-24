@@ -23,7 +23,7 @@ const steps = [
   {
     n: "02",
     title: "Drop the snippet",
-    body: "One <script> tag before </body>. Layla registers a service worker and handles subscriptions for you.",
+    body: "One <script> tag before </body>. Nezuko registers a service worker and handles subscriptions for you.",
     visual: (
       <div className="flex h-full items-center justify-center px-4">
         <pre className="w-full overflow-x-auto rounded-lg border border-border bg-black p-3 text-left text-xs">
@@ -50,7 +50,7 @@ const steps = [
             <div className="h-8 w-8 rounded-md bg-accent/30" />
             <div className="flex-1">
               <div className="flex items-center justify-between">
-                <div className="text-xs font-semibold">layla.wtf</div>
+                <div className="text-xs font-semibold">nezuko.wtf</div>
                 <div className="text-[10px] text-muted">now</div>
               </div>
               <div className="mt-0.5 text-xs text-white">You have 42 new signups</div>

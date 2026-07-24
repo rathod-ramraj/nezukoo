@@ -7,7 +7,7 @@ export const metadata = {
 
 const sections = [
   {
-    h: "1. What Layla is",
+    h: "1. What Nezuko is",
     p: "Nezuko is a web push notification service. Site owners embed a small script on their websites to let visitors subscribe to browser notifications. Nezuko stores push subscription endpoints on behalf of site owners and delivers messages via the browser's push service (Google FCM, Mozilla autopush, Apple APNs).",
   },
   {
@@ -33,7 +33,7 @@ const sections = [
     list: [
       "The salted hash of your 16-digit code (never the code itself in plaintext).",
       "The sites you register: name, origin, timestamps.",
-      "Push subscription endpoints and public keys provided by your visitors' browsers. These are opaque tokens routed to browser vendors — Layla cannot read the identity of a subscriber from them.",
+      "Push subscription endpoints and public keys provided by your visitors' browsers. These are opaque tokens routed to browser vendors — Nezuko cannot read the identity of a subscriber from them.",
       "Notification history: title, body, click URL, delivery counts, timestamps.",
       "Short-lived login-attempt records (IP + timestamp) to rate-limit brute-force. Auto-expire in 15 minutes.",
     ],

@@ -16,7 +16,7 @@ export async function GET(_req: Request, { params }: { params: { siteId: string 
     });
   }
 
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://layla.wtf";
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://nezukoo.vercel.app";
   const js = buildEmbed({ siteId, appUrl, vapidPublic: VAPID_PUBLIC });
   return new NextResponse(js, {
     headers: {

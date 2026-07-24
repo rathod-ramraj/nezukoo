@@ -6,8 +6,8 @@ const secret = new TextEncoder().encode(
   process.env.SESSION_SECRET || "dev-secret-change-me-please-32bytes!"
 );
 
-const COOKIE = "layla_session";
-const CODE_COOKIE = "layla_code";
+const COOKIE = "nezuko_session";
+const CODE_COOKIE = "nezuko_code";
 const SESSION_TTL_SECS = 60 * 60 * 24 * 7;
 const RENEW_IF_OLDER_THAN_SECS = 60 * 60 * 24;
 
@@ -24,7 +24,7 @@ export function normalizeCode(input: string): string {
 
 export function hashCode(code: string): string {
   const digits = normalizeCode(code);
-  const pepper = process.env.CODE_PEPPER || "layla-pepper";
+  const pepper = process.env.CODE_PEPPER || "nezuko-pepper";
   return crypto.createHash("sha256").update(digits + ":" + pepper).digest("hex");
 }
 

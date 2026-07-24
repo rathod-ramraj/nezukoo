@@ -1,4 +1,4 @@
-// Layla push queue worker.
+// Nezuko push queue worker.
 // Runs as its own Node process alongside Next.
 // Polls the `notifications` collection for docs with status="pending",
 // claims them, fans out web-push, updates progress on the same doc.
@@ -12,7 +12,7 @@ const webpush = require("web-push");
 const http = require("http");
 
 const MONGO_URI = process.env.MONGODB_URI;
-const DB_NAME = process.env.MONGODB_DB || "Layla";
+const DB_NAME = process.env.MONGODB_DB || "Nezuko";
 const PORT = Number(process.env.PORT || process.env.QUEUE_PORT || 4001);
 const CONCURRENCY = Number(process.env.QUEUE_CONCURRENCY || 250);
 const POLL_MS = Number(process.env.QUEUE_POLL_MS || 1500);
@@ -29,7 +29,7 @@ if (!process.env.VAPID_PUBLIC_KEY || !process.env.VAPID_PRIVATE_KEY) {
 }
 
 webpush.setVapidDetails(
-  process.env.VAPID_CONTACT || "mailto:admin@layla.wtf",
+  process.env.VAPID_CONTACT || "mailto:admin@nezuko.wtf",
   process.env.VAPID_PUBLIC_KEY,
   process.env.VAPID_PRIVATE_KEY,
 );

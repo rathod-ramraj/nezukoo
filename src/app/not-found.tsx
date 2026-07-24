@@ -13,7 +13,7 @@ export default function NotFound() {
 
       <main className="mx-auto max-w-md px-6 text-center">
         <div className="mx-auto mb-6 inline-flex items-center justify-center rounded-full bg-accent/20 p-3 shadow-[0_0_80px_20px_rgba(93,10,209,0.35)]">
-          <Image src="/logo.png" alt="Layla" width={44} height={44} />
+          <Image src="/logo.png" alt="Nezuko" width={44} height={44} />
         </div>
 
         <div className="text-[10px] uppercase tracking-[0.25em] text-accent">Error 404</div>

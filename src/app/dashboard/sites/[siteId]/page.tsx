@@ -26,7 +26,7 @@ export default async function SitePage({ params }: { params: { siteId: string } 
       .toArray(),
   ]);
 
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://layla.wtf";
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://nezukoo.vercel.app";
   const sentCount = site.sentCount ?? notifs.length;
   const totalAttempted = site.attemptedTotal ?? notifs.reduce((a: number, n: any) => a + (n.attempted || 0), 0);
   const totalDelivered = site.deliveredTotal ?? notifs.reduce((a: number, n: any) => a + (n.delivered || 0), 0);
