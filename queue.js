@@ -194,7 +194,7 @@ async function tick() {
           {
             $set: {
               status: "done",
-              error: String(e && e.message ? e.message : e).slice(0, 500),
+              error: "internal_error",
               finishedAt: new Date(),
             },
             $unset: { claimedBy: "", claimedAt: "" },
