@@ -51,18 +51,18 @@ export default async function Home() {
     <div className="relative w-full overflow-x-hidden bg-black text-white">
       {/* NAV */}
       <nav className="fixed inset-x-0 top-0 z-50 border-b border-border/50 bg-black/70 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
           <Link href="/" className="flex items-center gap-2">
             <Image src="/logo.png" alt="Nezuko Web Push" width={28} height={28} priority />
             <span className="text-lg font-semibold tracking-tight">Nezuko</span>
           </Link>
-          <div className="flex items-center gap-4 text-sm">
+          <div className="flex items-center gap-2.5 sm:gap-4 text-xs sm:text-sm">
             <Link href="/faq" className="text-muted hover:text-white transition">FAQ</Link>
             <Link href="/tos" className="text-muted hover:text-white transition">Terms</Link>
             <Link href="/auth?tab=signin" className="text-muted hover:text-white transition">Sign in</Link>
             <Link
               href="/auth?tab=signup"
-              className="rounded-full bg-accent px-4 py-1.5 font-medium text-white transition hover:bg-accent-hover"
+              className="rounded-full bg-accent px-3 py-1.5 sm:px-4 font-medium text-white transition hover:bg-accent-hover"
             >
               Get started
             </Link>
@@ -71,18 +71,18 @@ export default async function Home() {
       </nav>
 
       {/* HERO */}
-      <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden pt-24">
+      <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden pt-24 pb-12 sm:pb-0">
         <GridBackground />
 
-        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
+        <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center">
           <div className="mx-auto mb-6 flex items-center justify-center">
-            <div className="rounded-full bg-accent/20 p-4 shadow-[0_0_120px_40px_rgba(93,10,209,0.4)]">
+            <div className="rounded-full bg-accent/20 p-3 sm:p-4 shadow-[0_0_120px_40px_rgba(93,10,209,0.4)]">
               <Image
                 src="/logo.png"
                 alt="Nezuko Web Push Logo"
                 width={88}
                 height={88}
-                className="drop-shadow-[0_0_30px_rgba(93,10,209,0.6)]"
+                className="h-16 w-16 sm:h-22 sm:w-22 drop-shadow-[0_0_30px_rgba(93,10,209,0.6)]"
                 priority
               />
             </div>
@@ -91,13 +91,13 @@ export default async function Home() {
           <HoverBorderGradient
             as="div"
             containerClassName="mx-auto mb-6"
-            className="!py-1 !text-xs"
+            className="!py-1 !px-3 !text-[11px] sm:!text-xs"
           >
             <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-accent" />
             No email. No trackers. Just a 16-digit code.
           </HoverBorderGradient>
 
-          <h1 className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-5xl font-semibold tracking-tight text-transparent sm:text-7xl">
+          <h1 className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-3xl sm:text-6xl md:text-7xl font-semibold tracking-tight text-transparent">
             Nezuko Web Push
             <br />
             <span className="text-accent">notifications, simplified.</span>
@@ -105,19 +105,19 @@ export default async function Home() {
 
           <TextGenerate
             words="Drop one line of JS on your site. Send privacy-focused web push notifications with Nezuko. Zero trackers, no email required, passwordless authentication."
-            className="mx-auto mt-6 max-w-xl text-base font-normal text-muted sm:text-lg"
+            className="mx-auto mt-6 max-w-xl text-sm font-normal text-muted sm:text-lg px-2 sm:px-0"
           />
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row w-full max-w-xs sm:max-w-none mx-auto">
             <Link
               href="/auth?tab=signup"
-              className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-white shadow-[0_0_40px_rgba(93,10,209,0.5)] transition hover:bg-accent-hover"
+              className="w-full sm:w-auto rounded-full bg-accent px-6 py-3 text-sm font-medium text-white shadow-[0_0_40px_rgba(93,10,209,0.5)] transition hover:bg-accent-hover text-center"
             >
               Create your account →
             </Link>
             <Link
               href="/auth?tab=signin"
-              className="rounded-full border border-border px-6 py-3 text-sm font-medium text-white transition hover:border-accent"
+              className="w-full sm:w-auto rounded-full border border-border px-6 py-3 text-sm font-medium text-white transition hover:border-accent text-center"
             >
               I have a code
             </Link>
@@ -198,8 +198,8 @@ export default async function Home() {
               title="No email, no password, no phone."
               description="Your account is a 16-digit code. Nothing to leak, nothing to sell."
               header={
-                <div className="flex h-32 items-center justify-center rounded-lg bg-gradient-to-br from-accent/40 to-transparent">
-                  <div className="rounded-md border border-border bg-black px-4 py-2 font-mono text-lg tracking-widest">
+                <div className="flex h-32 items-center justify-center rounded-lg bg-gradient-to-br from-accent/40 to-transparent p-2">
+                  <div className="rounded-md border border-border bg-black px-3 py-2 sm:px-4 font-mono text-sm sm:text-lg tracking-wider sm:tracking-widest text-center">
                     XXXX-XXXX-XXXX-XXXX
                   </div>
                 </div>
@@ -262,12 +262,12 @@ export default async function Home() {
 
       {/* FOOTER */}
       <footer className="border-t border-border/50 py-8">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-xs text-muted sm:flex-row">
-          <div className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Nezuko Web Push" width={16} height={16} />
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 text-xs text-muted sm:flex-row sm:px-6">
+          <div className="flex items-center gap-2 text-center sm:text-left">
+            <Image src="/logo.png" alt="Nezuko Web Push" width={16} height={16} className="shrink-0" />
             <span>Nezuko Web Push — Privacy-focused Web Push Notification Service</span>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             <Link href="/" className="hover:text-white transition">Home</Link>
             <Link href="/faq" className="hover:text-white transition">FAQ</Link>
             <Link href="/tos" className="hover:text-white transition">Terms of Service</Link>

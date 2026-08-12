@@ -148,14 +148,14 @@ export default function FaqPage() {
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,transparent,rgba(0,0,0,0.6))]" />
 
       <nav className="sticky top-0 z-30 border-b border-white/[0.06] bg-black/70 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
           <Link href="/" className="flex items-center gap-2">
             <Image src="/logo.png" alt="Nezuko Web Push" width={28} height={28} />
             <span className="text-lg font-semibold tracking-tight">
               Nezuko<span className="text-accent">.</span>
             </span>
           </Link>
-          <div className="flex items-center gap-4 text-sm">
+          <div className="flex items-center gap-2.5 sm:gap-4 text-xs sm:text-sm">
             <Link href="/" className="text-muted transition hover:text-white">Home</Link>
             <Link href="/tos" className="text-muted transition hover:text-white">Terms</Link>
             <Link href="/auth?tab=signin" className="text-muted transition hover:text-white">Sign in</Link>
@@ -163,9 +163,9 @@ export default function FaqPage() {
         </div>
       </nav>
 
-      <main className="mx-auto max-w-3xl px-6 pb-24 pt-16 sm:pt-20">
+      <main className="mx-auto max-w-3xl px-4 pb-20 pt-12 sm:px-6 sm:pb-24 sm:pt-20">
         <div className="text-[10px] uppercase tracking-[0.25em] text-accent">Help center</div>
-        <h1 className="mt-3 text-5xl font-semibold tracking-tight sm:text-6xl">
+        <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
           Frequently asked <span className="text-muted">questions</span>
         </h1>
         <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">
@@ -187,8 +187,8 @@ export default function FaqPage() {
         <div className="mt-16 space-y-20">
           {categories.map((cat) => (
             <section key={cat.label} id={slug(cat.label)} className="scroll-mt-24">
-              <div className="flex items-baseline justify-between gap-4 border-b border-white/[0.06] pb-4">
-                <h2 className="text-2xl font-semibold tracking-tight">{cat.label}</h2>
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4 border-b border-white/[0.06] pb-4">
+                <h2 className="text-xl sm:text-2xl font-semibold tracking-tight">{cat.label}</h2>
                 <span className="text-xs text-muted">{cat.hint}</span>
               </div>
 
@@ -196,7 +196,7 @@ export default function FaqPage() {
                 {cat.items.map((it) => (
                   <article
                     key={it.q}
-                    className="group rounded-xl border border-white/[0.06] bg-white/[0.015] p-6 transition hover:border-white/[0.12] hover:bg-white/[0.03]"
+                    className="group rounded-xl border border-white/[0.06] bg-white/[0.015] p-4 sm:p-6 transition hover:border-white/[0.12] hover:bg-white/[0.03]"
                   >
                     <h3 className="text-base font-medium text-white">{it.q}</h3>
                     <p className="mt-3 text-sm leading-relaxed text-muted">{it.a}</p>
@@ -226,7 +226,7 @@ export default function FaqPage() {
           ))}
         </div>
 
-        <div className="mt-24 rounded-2xl border border-white/[0.06] bg-gradient-to-br from-white/[0.03] to-transparent p-8">
+        <div className="mt-16 sm:mt-24 rounded-2xl border border-white/[0.06] bg-gradient-to-br from-white/[0.03] to-transparent p-5 sm:p-8">
           <h3 className="text-lg font-semibold">Still stuck?</h3>
           <p className="mt-2 text-sm leading-relaxed text-muted">
             Most web push weirdness comes from the browser, not from Nezuko. If you hit something
@@ -251,12 +251,12 @@ export default function FaqPage() {
       </main>
 
       <footer className="border-t border-white/[0.06] py-6">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-xs text-muted sm:flex-row">
-          <div className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Nezuko Web Push" width={16} height={16} />
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 text-xs text-muted sm:flex-row sm:px-6">
+          <div className="flex items-center gap-2 text-center sm:text-left">
+            <Image src="/logo.png" alt="Nezuko Web Push" width={16} height={16} className="shrink-0" />
             <span>Nezuko Web Push — Privacy-focused Web Push Notification Service</span>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             <Link href="/" className="hover:text-white transition">Home</Link>
             <Link href="/faq" className="hover:text-white transition">FAQ</Link>
             <Link href="/tos" className="hover:text-white transition">Terms of Service</Link>

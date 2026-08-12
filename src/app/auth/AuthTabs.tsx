@@ -264,7 +264,7 @@ function SignUpForm() {
             className="rounded-xl border border-accent/60 bg-black p-4 text-center shadow-[0_0_50px_rgba(93,10,209,0.25)]"
           >
             <div className="text-[10px] uppercase tracking-widest text-muted">Your code</div>
-            <div className="mt-2 font-mono text-lg tracking-widest">{code}</div>
+            <div className="mt-2 font-mono text-sm sm:text-lg tracking-wider sm:tracking-widest">{code}</div>
           </motion.div>
 
           <button

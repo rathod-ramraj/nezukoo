@@ -74,12 +74,12 @@ export default function TosPage() {
   return (
     <div className="min-h-screen bg-black text-white">
       <nav className="border-b border-border/50 bg-black/70 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
           <Link href="/" className="flex items-center gap-2">
             <Image src="/logo.png" alt="Nezuko Web Push" width={28} height={28} />
             <span className="text-lg font-semibold tracking-tight">Nezuko</span>
           </Link>
-          <div className="flex items-center gap-4 text-sm">
+          <div className="flex items-center gap-2.5 sm:gap-4 text-xs sm:text-sm">
             <Link href="/" className="text-muted transition hover:text-white">Home</Link>
             <Link href="/faq" className="text-muted transition hover:text-white">FAQ</Link>
             <Link href="/auth?tab=signin" className="text-muted transition hover:text-white">Sign in</Link>
@@ -87,9 +87,9 @@ export default function TosPage() {
         </div>
       </nav>
 
-      <main className="mx-auto max-w-2xl px-6 py-16">
+      <main className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-16">
         <div className="text-[10px] uppercase tracking-[0.2em] text-accent">Legal</div>
-        <h1 className="mt-2 text-4xl font-semibold tracking-tight">Terms of Service</h1>
+        <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Terms of Service</h1>
         <p className="mt-3 text-sm text-muted">
           Short version: don&apos;t spam, don&apos;t scam, don&apos;t register domains you don&apos;t own. Long version below.
         </p>
@@ -116,12 +116,12 @@ export default function TosPage() {
       </main>
 
       <footer className="border-t border-border/50 py-6">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-xs text-muted sm:flex-row">
-          <div className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Nezuko Web Push" width={16} height={16} />
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 text-xs text-muted sm:flex-row sm:px-6">
+          <div className="flex items-center gap-2 text-center sm:text-left">
+            <Image src="/logo.png" alt="Nezuko Web Push" width={16} height={16} className="shrink-0" />
             <span>Nezuko Web Push — Privacy-focused Web Push Notification Service</span>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             <Link href="/" className="hover:text-white transition">Home</Link>
             <Link href="/faq" className="hover:text-white transition">FAQ</Link>
             <Link href="/tos" className="hover:text-white transition">Terms of Service</Link>

@@ -31,12 +31,12 @@ export default async function AuthPage() {
 
       {/* NAV */}
       <nav className="relative z-20 border-b border-border/50 bg-black/40 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
           <Link href="/" className="flex items-center gap-2">
             <Image src="/logo.png" alt="Nezuko Web Push" width={28} height={28} priority />
             <span className="text-lg font-semibold tracking-tight">Nezuko</span>
           </Link>
-          <div className="flex items-center gap-4 text-sm">
+          <div className="flex items-center gap-2.5 sm:gap-4 text-xs sm:text-sm">
             <Link href="/" className="text-muted transition hover:text-white">Home</Link>
             <Link href="/faq" className="text-muted transition hover:text-white">FAQ</Link>
             <Link href="/tos" className="text-muted transition hover:text-white">Terms</Link>
@@ -44,7 +44,7 @@ export default async function AuthPage() {
         </div>
       </nav>
 
-      <main className="relative z-10 mx-auto flex min-h-[calc(100vh-64px-56px)] w-full max-w-md items-center justify-center px-6 py-10">
+      <main className="relative z-10 mx-auto flex min-h-[calc(100vh-64px-56px)] w-full max-w-md items-center justify-center px-4 py-8 sm:px-6 sm:py-10">
         <Suspense fallback={<div className="text-sm text-muted">Loading…</div>}>
           <AuthTabs />
         </Suspense>
@@ -52,12 +52,12 @@ export default async function AuthPage() {
 
       {/* FOOTER */}
       <footer className="relative z-10 border-t border-border/50 py-6">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-xs text-muted sm:flex-row">
-          <div className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Nezuko Web Push" width={16} height={16} />
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 text-xs text-muted sm:flex-row sm:px-6">
+          <div className="flex items-center gap-2 text-center sm:text-left">
+            <Image src="/logo.png" alt="Nezuko Web Push" width={16} height={16} className="shrink-0" />
             <span>Nezuko Web Push — Privacy-focused Web Push Notification Service</span>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             <Link href="/" className="hover:text-white transition">Home</Link>
             <Link href="/faq" className="hover:text-white transition">FAQ</Link>
             <Link href="/tos" className="hover:text-white transition">Terms of Service</Link>
