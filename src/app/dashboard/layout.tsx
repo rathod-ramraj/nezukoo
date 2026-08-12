@@ -6,6 +6,11 @@ import CopyCodeButton from "./CopyCodeButton";
 import SendTrayProvider from "./SendTrayProvider";
 import SendTray from "./SendTray";
 
+export const metadata = {
+  title: "Dashboard",
+  robots: { index: false, follow: false, nocache: true },
+};
+
 export const dynamic = "force-dynamic";
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {

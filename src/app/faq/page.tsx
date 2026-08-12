@@ -2,7 +2,16 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "FAQ — Nezuko",
+  title: "Frequently Asked Questions",
+  description: "Get answers to common questions about Nezuko Web Push notifications, browser support, installation, VAPID, and privacy.",
+  alternates: {
+    canonical: "/faq",
+  },
+  openGraph: {
+    title: "Frequently Asked Questions — Nezuko Web Push",
+    description: "Get answers to common questions about Nezuko Web Push notifications, browser support, installation, VAPID, and privacy.",
+    url: "https://nezukoo.vercel.app/faq",
+  },
 };
 
 type Item = {
@@ -114,25 +123,43 @@ const categories: Category[] = [
 ];
 
 export default function FaqPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: categories.flatMap((cat) =>
+      cat.items.map((it) => ({
+        "@type": "Question",
+        name: it.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: it.a,
+        },
+      }))
+    ),
+  };
+
   return (
     <div className="relative min-h-screen overflow-hidden bg-black text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] bg-[radial-gradient(ellipse_at_top,rgba(93,10,209,0.22),transparent_60%)]" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,transparent,rgba(0,0,0,0.6))]" />
 
       <nav className="sticky top-0 z-30 border-b border-white/[0.06] bg-black/70 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Nezuko" width={28} height={28} />
+            <Image src="/logo.png" alt="Nezuko Web Push" width={28} height={28} />
             <span className="text-lg font-semibold tracking-tight">
               Nezuko<span className="text-accent">.</span>
             </span>
           </Link>
-          <Link
-            href="/dashboard"
-            className="text-sm text-muted transition hover:text-white"
-          >
-            &larr; Dashboard
-          </Link>
+          <div className="flex items-center gap-4 text-sm">
+            <Link href="/" className="text-muted transition hover:text-white">Home</Link>
+            <Link href="/tos" className="text-muted transition hover:text-white">Terms</Link>
+            <Link href="/auth?tab=signin" className="text-muted transition hover:text-white">Sign in</Link>
+          </div>
         </div>
       </nav>
 
@@ -142,8 +169,7 @@ export default function FaqPage() {
           Frequently asked <span className="text-muted">questions</span>
         </h1>
         <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">
-          Web push has a lot of quirks that come from the browser, not the service. Here&apos;s what
-          people run into most.
+          Web push notifications have browser rules and platform nuances. Here is everything you need to know about Nezuko Web Push.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-2">
@@ -209,10 +235,10 @@ export default function FaqPage() {
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link
-              href="/dashboard"
+              href="/"
               className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-black transition hover:bg-white/90"
             >
-              Back to dashboard
+              Back to Home
             </Link>
             <Link
               href="/tos"
@@ -225,21 +251,27 @@ export default function FaqPage() {
       </main>
 
       <footer className="border-t border-white/[0.06] py-6">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 text-xs text-muted">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-xs text-muted sm:flex-row">
           <div className="flex items-center gap-2">
-            <Image src="/logo.png" alt="" width={16} height={16} />
-            <span>Nezuko — nezukoo.vercel.app</span>
+            <Image src="/logo.png" alt="Nezuko Web Push" width={16} height={16} />
+            <span>Nezuko Web Push — Privacy-focused Web Push Notification Service</span>
           </div>
-          <div>
-            Built with love by{" "}
-            <a
-              href="https://github.com/rathod-ramraj"
-              target="_blank"
-              rel="noreferrer"
-              className="text-white hover:text-accent"
-            >
-              Ramraj
-            </a>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link href="/" className="hover:text-white transition">Home</Link>
+            <Link href="/faq" className="hover:text-white transition">FAQ</Link>
+            <Link href="/tos" className="hover:text-white transition">Terms of Service</Link>
+            <Link href="/auth?tab=signin" className="hover:text-white transition">Sign in</Link>
+            <span>·</span>
+            <span>Built by{" "}
+              <a
+                href="https://github.com/rathod-ramraj"
+                target="_blank"
+                rel="noreferrer"
+                className="text-white hover:text-accent"
+              >
+                Ramraj
+              </a>
+            </span>
           </div>
         </div>
       </footer>

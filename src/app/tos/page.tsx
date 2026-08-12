@@ -2,7 +2,16 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Terms of Service — Nezuko",
+  title: "Terms of Service",
+  description: "Nezuko Web Push Terms of Service: Learn about acceptable use, privacy, origin locking, and data storage policies.",
+  alternates: {
+    canonical: "/tos",
+  },
+  openGraph: {
+    title: "Terms of Service — Nezuko Web Push",
+    description: "Nezuko Web Push Terms of Service: Learn about acceptable use, privacy, origin locking, and data storage policies.",
+    url: "https://nezukoo.vercel.app/tos",
+  },
 };
 
 const sections = [
@@ -67,10 +76,14 @@ export default function TosPage() {
       <nav className="border-b border-border/50 bg-black/70 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Nezuko" width={28} height={28} />
+            <Image src="/logo.png" alt="Nezuko Web Push" width={28} height={28} />
             <span className="text-lg font-semibold tracking-tight">Nezuko</span>
           </Link>
-          <Link href="/" className="text-sm text-muted hover:text-white">&larr; Home</Link>
+          <div className="flex items-center gap-4 text-sm">
+            <Link href="/" className="text-muted transition hover:text-white">Home</Link>
+            <Link href="/faq" className="text-muted transition hover:text-white">FAQ</Link>
+            <Link href="/auth?tab=signin" className="text-muted transition hover:text-white">Sign in</Link>
+          </div>
         </div>
       </nav>
 
@@ -103,21 +116,27 @@ export default function TosPage() {
       </main>
 
       <footer className="border-t border-border/50 py-6">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 text-xs text-muted">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-xs text-muted sm:flex-row">
           <div className="flex items-center gap-2">
-            <Image src="/logo.png" alt="" width={16} height={16} />
-            <span>Nezuko — nezukoo.vercel.app</span>
+            <Image src="/logo.png" alt="Nezuko Web Push" width={16} height={16} />
+            <span>Nezuko Web Push — Privacy-focused Web Push Notification Service</span>
           </div>
-          <div>
-            Built with love by{" "}
-            <a
-              href="https://github.com/rathod-ramraj"
-              target="_blank"
-              rel="noreferrer"
-              className="text-white hover:text-accent"
-            >
-              Ramraj
-            </a>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link href="/" className="hover:text-white transition">Home</Link>
+            <Link href="/faq" className="hover:text-white transition">FAQ</Link>
+            <Link href="/tos" className="hover:text-white transition">Terms of Service</Link>
+            <Link href="/auth?tab=signin" className="hover:text-white transition">Sign in</Link>
+            <span>·</span>
+            <span>Built by{" "}
+              <a
+                href="https://github.com/rathod-ramraj"
+                target="_blank"
+                rel="noreferrer"
+                className="text-white hover:text-accent"
+              >
+                Ramraj
+              </a>
+            </span>
           </div>
         </div>
       </footer>

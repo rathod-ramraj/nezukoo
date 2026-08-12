@@ -53,11 +53,13 @@ export default async function Home() {
       <nav className="fixed inset-x-0 top-0 z-50 border-b border-border/50 bg-black/70 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Nezuko" width={28} height={28} priority />
+            <Image src="/logo.png" alt="Nezuko Web Push" width={28} height={28} priority />
             <span className="text-lg font-semibold tracking-tight">Nezuko</span>
           </Link>
-          <div className="flex items-center gap-3 text-sm">
-            <Link href="/auth?tab=signin" className="text-muted hover:text-white">Sign in</Link>
+          <div className="flex items-center gap-4 text-sm">
+            <Link href="/faq" className="text-muted hover:text-white transition">FAQ</Link>
+            <Link href="/tos" className="text-muted hover:text-white transition">Terms</Link>
+            <Link href="/auth?tab=signin" className="text-muted hover:text-white transition">Sign in</Link>
             <Link
               href="/auth?tab=signup"
               className="rounded-full bg-accent px-4 py-1.5 font-medium text-white transition hover:bg-accent-hover"
@@ -77,7 +79,7 @@ export default async function Home() {
             <div className="rounded-full bg-accent/20 p-4 shadow-[0_0_120px_40px_rgba(93,10,209,0.4)]">
               <Image
                 src="/logo.png"
-                alt="Nezuko"
+                alt="Nezuko Web Push Logo"
                 width={88}
                 height={88}
                 className="drop-shadow-[0_0_30px_rgba(93,10,209,0.6)]"
@@ -96,13 +98,13 @@ export default async function Home() {
           </HoverBorderGradient>
 
           <h1 className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-5xl font-semibold tracking-tight text-transparent sm:text-7xl">
-            Push notifications,
+            Nezuko Web Push
             <br />
-            <span className="text-accent">simplified.</span>
+            <span className="text-accent">notifications, simplified.</span>
           </h1>
 
           <TextGenerate
-            words="Drop one line of JS on your site. Reach your visitors instantly. Privacy is the default, not an add-on."
+            words="Drop one line of JS on your site. Send privacy-focused web push notifications with Nezuko. Zero trackers, no email required, passwordless authentication."
             className="mx-auto mt-6 max-w-xl text-base font-normal text-muted sm:text-lg"
           />
 
@@ -121,7 +123,7 @@ export default async function Home() {
             </Link>
           </div>
 
-          <p className="mt-6 text-xs text-muted">Free. Self-hostable. Open in spirit.</p>
+          <p className="mt-6 text-xs text-muted">Free. Self-hostable. Privacy-focused web push notification service.</p>
         </div>
       </section>
 
@@ -260,21 +262,28 @@ export default async function Home() {
 
       {/* FOOTER */}
       <footer className="border-t border-border/50 py-8">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 text-xs text-muted">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-xs text-muted sm:flex-row">
           <div className="flex items-center gap-2">
-            <Image src="/logo.png" alt="" width={16} height={16} />
-            <span>Nezuko — nezukoo.vercel.app</span>
+            <Image src="/logo.png" alt="Nezuko Web Push" width={16} height={16} />
+            <span>Nezuko Web Push — Privacy-focused Web Push Notification Service</span>
           </div>
-          <div>
-            Built with love by{" "}
-            <a
-              href="https://github.com/rathod-ramraj"
-              target="_blank"
-              rel="noreferrer"
-              className="text-white hover:text-accent"
-            >
-              Ramraj
-            </a>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link href="/" className="hover:text-white transition">Home</Link>
+            <Link href="/faq" className="hover:text-white transition">FAQ</Link>
+            <Link href="/tos" className="hover:text-white transition">Terms of Service</Link>
+            <Link href="/auth?tab=signin" className="hover:text-white transition">Sign in</Link>
+            <Link href="/auth?tab=signup" className="hover:text-white transition">Get Started</Link>
+            <span>·</span>
+            <span>Built by{" "}
+              <a
+                href="https://github.com/rathod-ramraj"
+                target="_blank"
+                rel="noreferrer"
+                className="text-white hover:text-accent"
+              >
+                Ramraj
+              </a>
+            </span>
           </div>
         </div>
       </footer>

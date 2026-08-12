@@ -32,7 +32,7 @@ export function BentoCard({
       {header}
       <div className="transition duration-300 group-hover/bento:translate-x-1">
         {icon}
-        <div className="mt-2 font-semibold text-white">{title}</div>
+        <h3 className="mt-2 font-semibold text-white">{title}</h3>
         <div className="mt-1 text-sm text-muted">{description}</div>
       </div>
     </div>

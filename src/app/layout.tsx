@@ -5,32 +5,35 @@ import "./globals.css";
 const GA_ID = "G-KPE1BEC56P";
 
 const SITE_URL = "https://nezukoo.vercel.app";
-const TITLE = "Nezuko — Web push notifications, without the bloat.";
+const TITLE = "Nezuko Web Push — Privacy-Focused Push Notifications for Websites";
 const DESCRIPTION =
-  "Drop one line of JS on your site and start sending browser push notifications. No email, no trackers, no cookies. A 16-digit code is your entire account.";
+  "Nezuko Web Push is a privacy-focused web push notification service for websites. Drop one line of JS to send browser push notifications with no email signup, no trackers, and passwordless 16-digit code authentication.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: TITLE,
-    template: "%s — Nezuko",
+    template: "%s | Nezuko Web Push",
   },
   description: DESCRIPTION,
-  applicationName: "Nezuko",
+  applicationName: "Nezuko Web Push",
   keywords: [
-    "web push",
-    "push notifications",
-    "browser notifications",
-    "notification API",
-    "service worker",
-    "VAPID",
-    "no email signup",
-    "privacy-first",
-    "nezuko",
+    "Nezuko",
+    "Nezuko Web Push",
+    "Nezuko Push Notifications",
+    "Nezuko Notifications",
+    "Web Push Notifications",
+    "Web Push Notification Service",
+    "Push Notifications for Websites",
+    "Privacy-focused Web Push",
+    "browser push notifications",
+    "service worker push",
+    "VAPID push notifications",
+    "open source push notifications",
   ],
-  authors: [{ name: "Nezuko" }],
-  creator: "Nezuko",
-  publisher: "Nezuko",
+  authors: [{ name: "Nezuko Web Push" }],
+  creator: "Nezuko Web Push",
+  publisher: "Nezuko Web Push",
   category: "technology",
   alternates: {
     canonical: "/",
@@ -47,7 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: SITE_URL,
-    siteName: "Nezuko",
+    siteName: "Nezuko Web Push",
     title: TITLE,
     description: DESCRIPTION,
     locale: "en_US",
@@ -56,7 +59,7 @@ export const metadata: Metadata = {
         url: "/banner.png",
         width: 2556,
         height: 1012,
-        alt: "Nezuko — Web push notifications, without the bloat.",
+        alt: "Nezuko Web Push — Privacy-Focused Web Push Notification Service Dashboard",
         type: "image/png",
       },
     ],
@@ -68,7 +71,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/banner.png",
-        alt: "Nezuko — Web push notifications, without the bloat.",
+        alt: "Nezuko Web Push — Privacy-Focused Web Push Notification Service Dashboard",
       },
     ],
   },
@@ -103,24 +106,31 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": `${SITE_URL}/#org`,
-      name: "Nezuko",
+      "@id": `${SITE_URL}/#organization`,
+      name: "Nezuko Web Push",
       url: SITE_URL,
-      logo: `${SITE_URL}/logo.png`,
+      logo: {
+        "@type": "ImageObject",
+        "@id": `${SITE_URL}/#logo`,
+        url: `${SITE_URL}/logo.png`,
+        contentUrl: `${SITE_URL}/logo.png`,
+        caption: "Nezuko Web Push Logo",
+      },
+      image: { "@id": `${SITE_URL}/#logo` },
     },
     {
       "@type": "WebSite",
-      "@id": `${SITE_URL}/#site`,
+      "@id": `${SITE_URL}/#website`,
       url: SITE_URL,
-      name: "Nezuko",
+      name: "Nezuko Web Push",
       description: DESCRIPTION,
-      publisher: { "@id": `${SITE_URL}/#org` },
+      publisher: { "@id": `${SITE_URL}/#organization` },
       inLanguage: "en-US",
     },
     {
       "@type": "SoftwareApplication",
-      "@id": `${SITE_URL}/#app`,
-      name: "Nezuko",
+      "@id": `${SITE_URL}/#application`,
+      name: "Nezuko Web Push",
       description: DESCRIPTION,
       url: SITE_URL,
       applicationCategory: "DeveloperApplication",
@@ -130,7 +140,7 @@ const jsonLd = {
         price: "0",
         priceCurrency: "USD",
       },
-      publisher: { "@id": `${SITE_URL}/#org` },
+      publisher: { "@id": `${SITE_URL}/#organization` },
     },
   ],
 };

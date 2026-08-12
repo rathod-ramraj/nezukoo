@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Nezuko — Web push notifications",
-    short_name: "Nezuko",
+    name: "Nezuko Web Push — Push Notifications for Websites",
+    short_name: "Nezuko Web Push",
     description:
-      "Drop one line of JS on your site and send browser push notifications. No email, no trackers.",
+      "Nezuko Web Push is a privacy-focused web push notification service for websites. Send browser push notifications with zero trackers and no email required.",
     start_url: "/dashboard",
     display: "standalone",
     background_color: "#000000",
