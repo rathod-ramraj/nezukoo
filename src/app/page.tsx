@@ -56,9 +56,9 @@ export default async function Home() {
             <Image src="/logo.png" alt="Nezuko Web Push" width={28} height={28} priority />
             <span className="text-lg font-semibold tracking-tight">Nezuko</span>
           </Link>
-          <div className="flex items-center gap-2.5 sm:gap-4 text-xs sm:text-sm">
-            <Link href="/faq" className="text-muted hover:text-white transition">FAQ</Link>
-            <Link href="/tos" className="text-muted hover:text-white transition">Terms</Link>
+          <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm">
+            <Link href="/faq" className="hidden sm:inline-block text-muted hover:text-white transition">FAQ</Link>
+            <Link href="/tos" className="hidden sm:inline-block text-muted hover:text-white transition">Terms</Link>
             <Link href="/auth?tab=signin" className="text-muted hover:text-white transition">Sign in</Link>
             <Link
               href="/auth?tab=signup"
