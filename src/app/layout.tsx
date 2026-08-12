@@ -91,6 +91,9 @@ export const metadata: Metadata = {
     telephone: false,
     address: false,
   },
+  verification: {
+    google: "googleb668cbe1029a79e4",
+  },
   manifest: "/manifest.webmanifest",
 };
 
