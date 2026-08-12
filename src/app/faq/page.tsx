@@ -156,8 +156,6 @@ export default function FaqPage() {
             </span>
           </Link>
           <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm">
-            <Link href="/" className="hidden sm:inline-block text-muted transition hover:text-white">Home</Link>
-            <Link href="/tos" className="hidden sm:inline-block text-muted transition hover:text-white">Terms</Link>
             <Link href="/auth?tab=signin" className="text-muted transition hover:text-white">Sign in</Link>
             <Link
               href="/auth?tab=signup"
