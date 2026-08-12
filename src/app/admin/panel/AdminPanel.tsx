@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion, LayoutGroup } from "framer-motion";
 
@@ -463,16 +463,17 @@ function SitesTab({ requestConfirm }: { requestConfirm: (s: ConfirmState) => voi
   const [loading, setLoading] = useState(false);
   const [detail, setDetail] = useState<any>(null);
 
-  async function load() {
+  const load = useCallback(async () => {
     setLoading(true);
     const res = await fetch(`/api/admin/sites?q=${encodeURIComponent(q)}`);
     const j = await res.json();
     setRows(j.sites || []);
     setLoading(false);
-  }
+  }, [q]);
+
   useEffect(() => {
     load();
-  }, []);
+  }, [load]);
 
   async function openDetail(siteId: string) {
     const res = await fetch(`/api/admin/sites/${siteId}`);
@@ -641,16 +642,17 @@ function UsersTab({ requestConfirm }: { requestConfirm: (s: ConfirmState) => voi
   const [rows, setRows] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
-  async function load() {
+  const load = useCallback(async () => {
     setLoading(true);
     const res = await fetch(`/api/admin/users?q=${encodeURIComponent(q)}`);
     const j = await res.json();
     setRows(j.users || []);
     setLoading(false);
-  }
+  }, [q]);
+
   useEffect(() => {
     load();
-  }, []);
+  }, [load]);
 
   function askDelete(userId: string, siteCount: number, origins: string[]) {
     requestConfirm({
