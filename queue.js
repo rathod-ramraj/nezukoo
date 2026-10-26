@@ -12,7 +12,8 @@ const webpush = require("web-push");
 const http = require("http");
 
 const MONGO_URI = process.env.MONGODB_URI || process.env.NEZUKOO_MONGODB_URI;
-const DB_NAME = process.env.MONGODB_DB || "Nezuko";
+const rawDb = process.env.MONGODB_DB || "Nezuko";
+const DB_NAME = rawDb.includes(".") ? "Nezuko" : rawDb;
 const PORT = Number(process.env.PORT || process.env.QUEUE_PORT || 4001);
 const CONCURRENCY = Number(process.env.QUEUE_CONCURRENCY || 250);
 const POLL_MS = Number(process.env.QUEUE_POLL_MS || 1500);

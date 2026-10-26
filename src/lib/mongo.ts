@@ -1,6 +1,7 @@
 import { MongoClient, Db } from "mongodb";
 
-const dbName = process.env.MONGODB_DB || "Nezuko";
+const rawDbName = process.env.MONGODB_DB || "Nezuko";
+const dbName = rawDbName.includes(".") ? "Nezuko" : rawDbName;
 
 declare global {
   // eslint-disable-next-line no-var
