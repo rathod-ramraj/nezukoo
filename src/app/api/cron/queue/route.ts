@@ -72,6 +72,8 @@ export async function GET(req: NextRequest) {
       icon: job.icon || undefined,
       image: job.image || undefined,
       actions: job.actions || undefined,
+      tag: `nezuko-${job._id.toString()}-${Date.now()}`,
+      renotify: true,
     });
 
     await db.collection("notifications").updateOne(
