@@ -37,11 +37,20 @@ webpush.setVapidDetails(
 const client = new MongoClient(MONGO_URI);
 let db;
 
-async function connect() {
-  await client.connect();
-  db = client.db(DB_NAME);
-  await db.collection("notifications").createIndex({ status: 1, sentAt: 1 });
-  console.log(`[queue] connected · worker=${WORKER_ID} · concurrency=${CONCURRENCY}`);
+async function connect(retries = 5, delayMs = 3000) {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      await client.connect();
+      db = client.db(DB_NAME);
+      await db.collection("notifications").createIndex({ status: 1, sentAt: 1 });
+      console.log(`[queue] connected · worker=${WORKER_ID} · concurrency=${CONCURRENCY}`);
+      return;
+    } catch (err) {
+      console.error(`[queue] connection attempt ${attempt}/${retries} failed:`, err.message || err);
+      if (attempt === retries) throw err;
+      await new Promise((r) => setTimeout(r, delayMs));
+    }
+  }
 }
 
 async function claimNext() {
