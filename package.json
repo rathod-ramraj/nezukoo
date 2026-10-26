@@ -9,6 +9,8 @@
     "build": "next build",
     "start": "next start",
     "queue": "node queue.js",
+    "worker:dev": "wrangler dev --cwd worker",
+    "worker:deploy": "wrangler deploy --cwd worker",
     "lint": "next lint",
     "gen:vapid": "node scripts/gen-vapid.js"
   },
