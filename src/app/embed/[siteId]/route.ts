@@ -74,10 +74,12 @@ function buildEmbed({ siteId, appUrl, vapidPublic }: { siteId: string; appUrl: s
       var ask = async function(){
         if (asked) return; asked=true;
         document.removeEventListener('click', ask, true);
+        document.removeEventListener('touchend', ask, true);
         var p = await Notification.requestPermission();
         if (p === 'granted') subscribe(reg);
       };
       document.addEventListener('click', ask, true);
+      document.addEventListener('touchend', ask, true);
       return;
     }
     subscribe(reg);
@@ -97,7 +99,9 @@ function buildEmbed({ siteId, appUrl, vapidPublic }: { siteId: string; appUrl: s
         headers:{'Content-Type':'application/json'},
         body: JSON.stringify({ siteId: SITE, origin: location.origin, subscription: sub })
       });
-    } catch(e){}
+    } catch(e){
+      console.error('[Nezuko] Subscription error:', e);
+    }
   }
 
   if (document.readyState === 'complete') register();

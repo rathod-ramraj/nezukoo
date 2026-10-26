@@ -68,6 +68,8 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "origin_mismatch" }, { status: 403 });
   }
 
+  const userAgent = req.headers.get("user-agent") || null;
+
   await db.collection("subscribers").updateOne(
     { siteId, endpoint: subscription.endpoint },
     {
@@ -75,6 +77,7 @@ export async function POST(req: Request) {
         siteId,
         endpoint: subscription.endpoint,
         keys: { p256dh: keys.p256dh, auth: keys.auth },
+        userAgent,
         updatedAt: new Date(),
       },
       $setOnInsert: { createdAt: new Date() },
