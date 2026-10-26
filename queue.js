@@ -117,7 +117,13 @@ async function runJob(job) {
         await webpush.sendNotification(
           { endpoint: s.endpoint, keys: s.keys },
           payload,
-          { TTL: 60 * 60 * 24 },
+          {
+            TTL: 60 * 60 * 24,
+            urgency: "high",
+            headers: {
+              Urgency: "high",
+            },
+          },
         );
         delivered++;
       } catch (e) {
