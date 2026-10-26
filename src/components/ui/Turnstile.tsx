@@ -1,6 +1,6 @@
 "use client";
 import Script from "next/script";
-import { useEffect, useId, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 declare global {
   interface Window {
@@ -19,40 +19,57 @@ export function Turnstile({
   onToken: (token: string | null) => void;
   theme?: "light" | "dark" | "auto";
 }) {
-  const holderId = useId().replace(/:/g, "");
+  const containerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
-  let siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
-  if (process.env.NODE_ENV === "development" && (!siteKey || siteKey.startsWith("0x"))) {
-    siteKey = "1x00000000000000000000AA";
-  }
+  const onTokenRef = useRef(onToken);
+  onTokenRef.current = onToken;
+
+  const siteKey =
+    process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ||
+    "0x4AAAAAAD6OY-3rcsgHnxYd";
 
   useEffect(() => {
     if (!siteKey) {
-      onToken("disabled");
+      onTokenRef.current("disabled");
       return;
     }
 
     let cancelled = false;
-    function tryRender() {
-      if (cancelled) return;
-      const el = document.getElementById(holderId);
-      if (!el || !window.turnstile || !siteKey) {
-        setTimeout(tryRender, 200);
-        return;
+
+    function renderWidget() {
+      if (cancelled || !containerRef.current || widgetIdRef.current) return;
+      if (!window.turnstile) return;
+
+      try {
+        containerRef.current.innerHTML = "";
+        widgetIdRef.current = window.turnstile.render(containerRef.current, {
+          sitekey: siteKey,
+          theme,
+          callback: (token: string) => onTokenRef.current(token),
+          "error-callback": () => onTokenRef.current(null),
+          "expired-callback": () => onTokenRef.current(null),
+          "timeout-callback": () => onTokenRef.current(null),
+        });
+      } catch (err) {
+        console.error("Turnstile render error:", err);
       }
-      if (widgetIdRef.current) return;
-      widgetIdRef.current = window.turnstile.render(el, {
-        sitekey: siteKey,
-        theme,
-        callback: (token: string) => onToken(token),
-        "error-callback": () => onToken(null),
-        "expired-callback": () => onToken(null),
-        "timeout-callback": () => onToken(null),
-      });
     }
-    tryRender();
+
+    const interval = setInterval(() => {
+      if (cancelled) return;
+      if (window.turnstile && containerRef.current && !widgetIdRef.current) {
+        renderWidget();
+      }
+      if (widgetIdRef.current) {
+        clearInterval(interval);
+      }
+    }, 150);
+
+    renderWidget();
+
     return () => {
       cancelled = true;
+      clearInterval(interval);
       if (widgetIdRef.current && window.turnstile) {
         try {
           window.turnstile.remove(widgetIdRef.current);
@@ -60,17 +77,17 @@ export function Turnstile({
         widgetIdRef.current = null;
       }
     };
-  }, [holderId, siteKey, theme, onToken]);
+  }, [siteKey, theme]);
 
   if (!siteKey) return null;
 
   return (
     <>
       <Script
-        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
         strategy="afterInteractive"
       />
-      <div id={holderId} className="flex justify-center" />
+      <div ref={containerRef} className="flex min-h-[65px] items-center justify-center" />
     </>
   );
 }
