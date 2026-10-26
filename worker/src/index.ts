@@ -94,7 +94,7 @@ async function processQueue(env: Env): Promise<ProcessResult> {
   return { ok: errors === 0, processed, errors, jobs };
 }
 
-export default {
+const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
 
@@ -140,3 +140,6 @@ export default {
     ctx.waitUntil(processQueue(env));
   },
 };
+
+export default worker;
+
