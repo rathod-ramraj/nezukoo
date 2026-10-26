@@ -11,7 +11,7 @@ const { MongoClient, ObjectId } = require("mongodb");
 const webpush = require("web-push");
 const http = require("http");
 
-const MONGO_URI = process.env.MONGODB_URI;
+const MONGO_URI = process.env.MONGODB_URI || process.env.NEZUKOO_MONGODB_URI;
 const DB_NAME = process.env.MONGODB_DB || "Nezuko";
 const PORT = Number(process.env.PORT || process.env.QUEUE_PORT || 4001);
 const CONCURRENCY = Number(process.env.QUEUE_CONCURRENCY || 250);

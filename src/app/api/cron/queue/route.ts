@@ -27,7 +27,7 @@ export async function GET(req: NextRequest) {
     process.env.VAPID_PRIVATE_KEY
   );
 
-  if (!process.env.MONGODB_URI) {
+  if (!process.env.MONGODB_URI && !process.env.NEZUKOO_MONGODB_URI) {
     return NextResponse.json({ error: "MONGODB_URI not set" }, { status: 500 });
   }
 

@@ -12,8 +12,8 @@ declare global {
 let dbPromise: Promise<Db> | null = null;
 
 export function getDb(): Promise<Db> {
-  const uri = process.env.MONGODB_URI;
-  if (!uri) throw new Error("MONGODB_URI not set");
+  const uri = process.env.MONGODB_URI || process.env.NEZUKOO_MONGODB_URI;
+  if (!uri) throw new Error("MONGODB_URI or NEZUKOO_MONGODB_URI not set");
 
   if (!global._mongoClient) {
     global._mongoClient = new MongoClient(uri);
