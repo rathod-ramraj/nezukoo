@@ -10,6 +10,7 @@ import { TextGenerate } from "@/components/ui/TextGenerate";
 import SnippetPreview from "./_landing/SnippetPreview";
 import Workflow from "./_landing/Workflow";
 import StatsHover from "./_landing/StatsHover";
+import LiveDemo from "./_landing/LiveDemo";
 
 export const dynamic = "force-dynamic";
 
@@ -95,10 +96,14 @@ export default async function Home() {
             No email. No trackers. Just a 16-digit code.
           </HoverBorderGradient>
 
-          <h1 className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-3xl sm:text-6xl md:text-7xl font-semibold tracking-tight text-transparent">
-            Nezuko Web Push
+          <h1 className="text-3xl sm:text-6xl md:text-[72px] md:leading-[72px] font-semibold tracking-[-1.8px]">
+            <span className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
+              Nezuko Web Push
+            </span>
             <br />
-            <span className="text-accent">notifications, simplified.</span>
+            <span className="font-sans text-3xl sm:text-6xl md:text-[72px] font-semibold italic leading-tight md:leading-[72px] tracking-[-1.8px] text-[#5d0ad1]">
+              notifications, simplified.
+            </span>
           </h1>
 
           <TextGenerate
@@ -146,6 +151,22 @@ export default async function Home() {
           </div>
         </section>
       )}
+
+      {/* LIVE DEMO */}
+      <section className="relative border-t border-border/50 py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mb-12 text-center">
+            <div className="mb-3 text-xs uppercase tracking-[0.2em] text-accent">Interactive preview</div>
+            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+              See it in action.
+            </h2>
+            <p className="mx-auto mt-3 max-w-md text-sm text-muted">
+              Compose a push notification and watch it appear on desktop and mobile.
+            </p>
+          </div>
+          <LiveDemo />
+        </div>
+      </section>
 
       {/* SNIPPET */}
       <section className="relative border-t border-border/50 py-24">
@@ -244,7 +265,9 @@ export default async function Home() {
       <section className="relative border-t border-border/50 py-24">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-            Start sending in <span className="text-accent">under a minute.</span>
+            Ship a push before
+            <br />
+            <span className="text-accent">your coffee&apos;s cold.</span>
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-muted">
             Generate a code, paste the snippet, send your first push. No credit card, no email confirmation, no BS.
