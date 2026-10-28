@@ -264,10 +264,12 @@ export default async function Home() {
       {/* CTA */}
       <section className="relative border-t border-border/50 py-24">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+          <h2 className="text-3xl sm:text-5xl md:text-[72px] md:leading-[72px] font-semibold tracking-[-1.8px]">
             Ship a push before
             <br />
-            <span className="text-accent">your coffee&apos;s cold.</span>
+            <span className="font-sans text-3xl sm:text-5xl md:text-[72px] font-semibold italic leading-tight md:leading-[72px] tracking-[-1.8px] text-[#5d0ad1]">
+              your coffee&apos;s cold.
+            </span>
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-muted">
             Generate a code, paste the snippet, send your first push. No credit card, no email confirmation, no BS.

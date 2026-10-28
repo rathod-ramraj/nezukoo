@@ -14,7 +14,7 @@ Drop one line of JS on your site and start sending browser push notifications. N
 
 
 <p align="center">
-    <img src="./public/banner.png" width="900" height="400" />
+    <img src="./public/banner1.png" width="900" height="400" />
 </p>
 
 ## What it does
